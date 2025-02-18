@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>AhisaTestProject - Command 1</Text>
+    <Description>Some description</Description>
+    <Assembly>AhisaTestProject\AhisaTestProject.dll</Assembly>
+    <FullClassName>AhisaTestProject.Command1</FullClassName>
+    <ClientId>383d00e1-62ef-4e32-9a56-a226434b1dba</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Text>AhisaTestProject - Command 2</Text>
+    <Description>Some description</Description>
+    <Assembly>AhisaTestProject\AhisaTestProject.dll</Assembly>
+    <FullClassName>AhisaTestProject.Command2</FullClassName>
+    <ClientId>9fba897b-e0be-4a58-9fb8-1343a0185bf1</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>AhisaTestProject</Name>
+    <Assembly>AhisaTestProject\AhisaTestProject.dll</Assembly>
+    <FullClassName>AhisaTestProject.App</FullClassName>
+    <ClientId>3a713ebf-cf22-4fd5-8e57-5cd612190252</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+</RevitAddIns>
