@@ -25,19 +25,22 @@ namespace AhisaTestProject
             PushButtonData btnData3 = Command3.GetButtonData();
 
             // Create the pull-down button
-            PulldownButtonData pullDownData = new PulldownButtonData("ExplodeGroups", "Groups");
+            PulldownButtonData pullDownData = new PulldownButtonData("Group Actions", "Groups");
             pullDownData.Image = btnData1.Image; // Set initial image (optional)
             pullDownData.LargeImage = btnData1.LargeImage;
 
             PulldownButton pullDownButton = panel.AddItem(pullDownData) as PulldownButton;
 
             // Add the buttons with separators
-            pullDownButton.AddPushButton(btnData3);
-            pullDownButton.AddSeparator(); // <-- Adds a separator line
-            pullDownButton.AddPushButton(btnData1);           
+            pullDownButton.AddPushButton(btnData1);
             pullDownButton.AddPushButton(btnData2);
-           
-            
+            //pullDownButton.AddSeparator(); // <-- Adds a separator line
+            //pullDownButton.AddPushButton(btnData1);
+            //
+            PushButton myButton3 = panel.AddItem(btnData3) as PushButton;
+
+
+
 
             //PushButtonData btnData3 = cmdChallenge03.GetButtonData();
             //PushButtonData btnData4 = cmdChallenge04.GetButtonData();
@@ -52,7 +55,7 @@ namespace AhisaTestProject
             //// 4. Create buttons
             //PushButton myButton1 = panel.AddItem(btnData1) as PushButton;
             //PushButton myButton2 = panel.AddItem(btnData2) as PushButton;
-            //PushButton myButton3 = panel.AddItem(btnData3) as PushButton;
+
             //PushButton myButton4 = panel.AddItem(btnData4) as PushButton;
 
             //// 4. Add Tooltips
