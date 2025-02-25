@@ -23,6 +23,7 @@ namespace AhisaTestProject
             PushButtonData btnData1 = Command1.GetButtonData();
             PushButtonData btnData2 = Command2.GetButtonData();
             PushButtonData btnData3 = Command3.GetButtonData();
+            PushButtonData btnData4 = Command4.GetButtonData();
 
             // Create the pull-down button
             PulldownButtonData pullDownData = new PulldownButtonData("Group Actions", "Groups");
@@ -38,9 +39,10 @@ namespace AhisaTestProject
             //pullDownButton.AddPushButton(btnData1);
             //
             PushButton myButton3 = panel.AddItem(btnData3) as PushButton;
+            PushButton myButton4 = panel.AddItem(btnData4) as PushButton;
 
             //panel.AddStackedItems(btnData1, btnData2);
-            
+
 
 
 

@@ -89,15 +89,15 @@
         internal static PushButtonData GetButtonData()
         {
             string buttonInternalName = "btnCommand4";
-            string buttonTitle = "Delete Imported DWGs";
+            string buttonTitle = "Delete Imported \nDWGs";
 
             Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                null, null,
-                //Properties.Resources.DeleteDWGs32,
-                //Properties.Resources.DeleteDWGs16,
+
+                Properties.Resources.DeleteUnusedSBoxes32,
+                Properties.Resources.DeleteUnusedSBoxes16,
                 "Finds all imported (not linked) DWG files and optionally deletes them.");
 
             return myButtonData.Data;
