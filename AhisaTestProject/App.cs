@@ -39,6 +39,9 @@ namespace AhisaTestProject
             //
             PushButton myButton3 = panel.AddItem(btnData3) as PushButton;
 
+            //panel.AddStackedItems(btnData1, btnData2);
+            
+
 
 
 

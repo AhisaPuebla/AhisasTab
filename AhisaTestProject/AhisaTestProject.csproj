@@ -74,23 +74,19 @@
 	<ItemGroup>
 	  <None Remove="Resources\DeleteUnusedGroups16.png" />
 	  <None Remove="Resources\DeleteUnusedGroups32.png" />
-	  <None Remove="Resources\ExplodeDGroups16.png" />
-	  <None Remove="Resources\ExplodeDGroups32.png" />
-	  <None Remove="Resources\ExplodeGroups16.png" />
-	  <None Remove="Resources\ExplodeGroups32.png" />
-	  <None Remove="Resources\ExplodeMoGroups16.png" />
-	  <None Remove="Resources\ExplodeMoGroups32.png" />
+	  <None Remove="Resources\DeleteUnusedSBoxes16.png" />
+	  <None Remove="Resources\DeleteUnusedSBoxes32.png" />
+	  <None Remove="Resources\UngroupAndDeleteUnusedGroups16.png" />
+	  <None Remove="Resources\UngroupAndDeleteUnusedGroups32.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\DeleteUnusedGroups16.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedGroups32.png" />
-	  <EmbeddedResource Include="Resources\ExplodeDGroups16.png" />
-	  <EmbeddedResource Include="Resources\ExplodeDGroups32.png" />
-	  <EmbeddedResource Include="Resources\ExplodeGroups16.png" />
-	  <EmbeddedResource Include="Resources\ExplodeGroups32.png" />
-	  <EmbeddedResource Include="Resources\ExplodeMoGroups16.png" />
-	  <EmbeddedResource Include="Resources\ExplodeMoGroups32.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes16.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes32.png" />
+	  <EmbeddedResource Include="Resources\UngroupAndDeleteUnusedGroups16.png" />
+	  <EmbeddedResource Include="Resources\UngroupAndDeleteUnusedGroups32.png" />
 	</ItemGroup>
 	
 	<ItemGroup>

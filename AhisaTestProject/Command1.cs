@@ -65,6 +65,7 @@
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
+                //null,
                 Properties.Resources.DeleteUnusedGroups32,
                 Properties.Resources.DeleteUnusedGroups16,
                 "Deletes all non-placed detail and model groups in the project");

@@ -124,22 +124,16 @@
   <data name="DeleteUnusedGroups32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeleteUnusedGroups32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ExplodeDGroups16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExplodeDGroups16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DeleteUnusedSBoxes16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnusedSBoxes16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ExplodeDGroups32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExplodeDGroups32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DeleteUnusedSBoxes32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnusedSBoxes32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ExplodeGroups16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExplodeGroups16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="UngroupAndDeleteUnusedGroups16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupAndDeleteUnusedGroups16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ExplodeGroups32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExplodeGroups32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ExplodeMoGroups16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExplodeMoGroups16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ExplodeMoGroups32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExplodeMoGroups32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="UngroupAndDeleteUnusedGroups32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupAndDeleteUnusedGroups32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

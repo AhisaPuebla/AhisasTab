@@ -83,9 +83,9 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ExplodeDGroups16 {
+        internal static byte[] DeleteUnusedSBoxes16 {
             get {
-                object obj = ResourceManager.GetObject("ExplodeDGroups16", resourceCulture);
+                object obj = ResourceManager.GetObject("DeleteUnusedSBoxes16", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ExplodeDGroups32 {
+        internal static byte[] DeleteUnusedSBoxes32 {
             get {
-                object obj = ResourceManager.GetObject("ExplodeDGroups32", resourceCulture);
+                object obj = ResourceManager.GetObject("DeleteUnusedSBoxes32", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ExplodeGroups16 {
+        internal static byte[] UngroupAndDeleteUnusedGroups16 {
             get {
-                object obj = ResourceManager.GetObject("ExplodeGroups16", resourceCulture);
+                object obj = ResourceManager.GetObject("UngroupAndDeleteUnusedGroups16", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -113,29 +113,9 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] ExplodeGroups32 {
+        internal static byte[] UngroupAndDeleteUnusedGroups32 {
             get {
-                object obj = ResourceManager.GetObject("ExplodeGroups32", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] ExplodeMoGroups16 {
-            get {
-                object obj = ResourceManager.GetObject("ExplodeMoGroups16", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] ExplodeMoGroups32 {
-            get {
-                object obj = ResourceManager.GetObject("ExplodeMoGroups32", resourceCulture);
+                object obj = ResourceManager.GetObject("UngroupAndDeleteUnusedGroups32", resourceCulture);
                 return ((byte[])(obj));
             }
         }
