@@ -82,7 +82,7 @@
         internal static PushButtonData GetButtonData()
         {
             string buttonInternalName = "btnCommand3";
-            string buttonTitle = "Delete Unused \nScope Boxes";
+            string buttonTitle = "Scope Boxes";
 
             Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
                 buttonInternalName,

@@ -63,6 +63,26 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DeleteDWG16 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteDWG16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DeleteDWG32 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteDWG32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] DeleteUnusedGroups16 {
             get {
                 object obj = ResourceManager.GetObject("DeleteUnusedGroups16", resourceCulture);

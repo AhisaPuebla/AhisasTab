@@ -72,6 +72,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\DeleteDWG16.png" />
+	  <None Remove="Resources\DeleteDWG32.png" />
 	  <None Remove="Resources\DeleteUnusedGroups16.png" />
 	  <None Remove="Resources\DeleteUnusedGroups32.png" />
 	  <None Remove="Resources\DeleteUnusedSBoxes16.png" />
@@ -81,6 +83,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Resources\DeleteDWG16.png" />
+	  <EmbeddedResource Include="Resources\DeleteDWG32.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedGroups16.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedGroups32.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes16.png" />
