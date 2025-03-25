@@ -9,16 +9,14 @@
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            int explodedDetailCount = 0;
-            int explodedModelCount = 0;
-            int deletedDetailCount = 0;
-            int deletedModelCount = 0;
+            int ungroupedDetailCount = 0;
+            int ungroupedModelCount = 0;
 
-            using (Transaction trans = new Transaction(doc, "Explode All Groups"))
+            using (Transaction trans = new Transaction(doc, "Ungroup All Groups"))
             {
                 trans.Start();
 
-                // Step 1: Ungroup all placed detail groups
+                // Collect and ungroup all placed detail groups
                 List<Group> detailGroups = new FilteredElementCollector(doc)
                     .OfCategory(BuiltInCategory.OST_IOSDetailGroups)
                     .WhereElementIsNotElementType()
@@ -28,10 +26,10 @@
                 foreach (Group group in detailGroups)
                 {
                     group.UngroupMembers();
-                    explodedDetailCount++;
+                    ungroupedDetailCount++;
                 }
 
-                // Step 2: Ungroup all placed model groups
+                // Collect and ungroup all placed model groups
                 List<Group> modelGroups = new FilteredElementCollector(doc)
                     .OfCategory(BuiltInCategory.OST_IOSModelGroups)
                     .WhereElementIsNotElementType()
@@ -41,38 +39,7 @@
                 foreach (Group group in modelGroups)
                 {
                     group.UngroupMembers();
-                    explodedModelCount++;
-                }
-
-                trans.Commit();
-            }
-
-            using (Transaction trans = new Transaction(doc, "Delete All Non-Placed Groups"))
-            {
-                trans.Start();
-
-                // Step 3: Delete all remaining detail group types
-                List<Element> detailGroupTypes = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_IOSDetailGroups)
-                    .WhereElementIsElementType()
-                    .ToList();
-
-                foreach (Element groupType in detailGroupTypes)
-                {
-                    doc.Delete(groupType.Id);
-                    deletedDetailCount++;
-                }
-
-                // Step 4: Delete all remaining model group types
-                List<Element> modelGroupTypes = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_IOSModelGroups)
-                    .WhereElementIsElementType()
-                    .ToList();
-
-                foreach (Element groupType in modelGroupTypes)
-                {
-                    doc.Delete(groupType.Id);
-                    deletedModelCount++;
+                    ungroupedModelCount++;
                 }
 
                 trans.Commit();
@@ -80,34 +47,26 @@
 
             // Show TaskDialog with summary of actions
             TaskDialog.Show("Group Cleanup",
-                $"{explodedDetailCount} placed detail groups ungrouped.\n" +
-                $"{explodedModelCount} placed model groups ungrouped.\n\n" +
-                $"{deletedDetailCount} unplaced detail group types deleted.\n" +
-                $"{deletedModelCount} unplaced model group types deleted.");
+                $"{ungroupedDetailCount} placed detail groups ungrouped.\n" +
+                $"{ungroupedModelCount} placed model groups ungrouped.");
 
             return Result.Succeeded;
         }
 
-       
         internal static PushButtonData GetButtonData()
         {
-
-            // use this method to define the properties for this command in the Revit ribbon
             string buttonInternalName = "btnCommand2";
-            string buttonTitle = "Ungroup and \nDelete All Groups";
+            string buttonTitle = "Ungroup All Groups";
 
             Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                //null,
                 Properties.Resources.UngroupAndDeleteUnusedGroups32,
                 Properties.Resources.UngroupAndDeleteUnusedGroups16,
-                "Ungroup and then delete all detail and model groups in the project.");
+                "Ungroup all placed model and detail groups in the project.");
 
             return myButtonData.Data;
-
         }
     }
-
 }

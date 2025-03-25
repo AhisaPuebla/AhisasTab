@@ -9,72 +9,85 @@
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            int deletedScopeBoxCount = 0;
-            List<string> deletedScopeBoxNames = new List<string>();
+            // Collect all scope boxes in the project
+            List<Element> scopeBoxes = new FilteredElementCollector(doc)
+                .OfCategory(BuiltInCategory.OST_VolumeOfInterest)
+                .WhereElementIsNotElementType()
+                .ToList();
 
-            using (Transaction trans = new Transaction(doc, "Delete Unused Scope Boxes"))
+            // Collect all views and view templates
+            List<View> views = new FilteredElementCollector(doc)
+                .OfClass(typeof(View))
+                .Cast<View>()
+                .Where(v => !v.IsTemplate)
+                .ToList();
+
+            List<View> viewTemplates = new FilteredElementCollector(doc)
+                .OfClass(typeof(View))
+                .Cast<View>()
+                .Where(v => v.IsTemplate)
+                .ToList();
+
+            // Identify unused scope boxes
+            List<Element> unusedScopeBoxes = new List<Element>();
+            foreach (Element scopeBox in scopeBoxes)
             {
-                trans.Start();
+                ElementId scopeBoxId = scopeBox.Id;
+                bool isUsed = views.Any(v => v.GetParamValue(BuiltInParameter.VIEWER_VOLUME_OF_INTEREST_CROP) == scopeBoxId) ||
+                              viewTemplates.Any(vt => vt.GetParamValue(BuiltInParameter.VIEWER_VOLUME_OF_INTEREST_CROP) == scopeBoxId);
 
-                // Get all scope boxes in the model
-                List<Element> scopeBoxes = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_VolumeOfInterest) // Scope Boxes category
-                    .WhereElementIsNotElementType()
-                    .ToList();
-
-                // Get all views and view templates
-                List<View> views = new FilteredElementCollector(doc)
-                    .OfClass(typeof(View))
-                    .Cast<View>()
-                    .Where(v => !v.IsTemplate)
-                    .ToList();
-
-                List<View> viewTemplates = new FilteredElementCollector(doc)
-                    .OfClass(typeof(View))
-                    .Cast<View>()
-                    .Where(v => v.IsTemplate)
-                    .ToList();
-
-                // Find and delete unused scope boxes
-                foreach (Element scopeBox in scopeBoxes)
+                if (!isUsed)
                 {
-                    ElementId scopeBoxId = scopeBox.Id;
-                    string scopeBoxName = scopeBox.Name;
-
-                    // Check if the scope box is used in any view or template
-                    bool isUsed = views.Any(v => v.GetParamValue(BuiltInParameter.VIEWER_VOLUME_OF_INTEREST_CROP) == scopeBoxId) ||
-                                  viewTemplates.Any(vt => vt.GetParamValue(BuiltInParameter.VIEWER_VOLUME_OF_INTEREST_CROP) == scopeBoxId);
-
-                    if (!isUsed)
-                    {
-                        doc.Delete(scopeBoxId);
-                        deletedScopeBoxNames.Add(scopeBoxName);
-                        deletedScopeBoxCount++;
-                    }
+                    unusedScopeBoxes.Add(scopeBox);
                 }
-
-                trans.Commit();
             }
 
-            // Prepare the TaskDialog message
-            StringBuilder messageBuilder = new StringBuilder();
-            messageBuilder.AppendLine($"{deletedScopeBoxCount} unused scope boxes deleted.");
-
-            if (deletedScopeBoxNames.Count > 0)
+            // If no unused scope boxes found, notify the user
+            if (unusedScopeBoxes.Count == 0)
             {
-                messageBuilder.AppendLine("\nDeleted Scope Boxes:");
-                foreach (string name in deletedScopeBoxNames)
+                TaskDialog.Show("Scope Box Cleanup", "No unused scope boxes found in the project.");
+                return Result.Succeeded;
+            }
+
+            // Prepare list of unused scope boxes for display
+            StringBuilder messageBuilder = new StringBuilder();
+            messageBuilder.AppendLine($"Found {unusedScopeBoxes.Count} unused scope boxes:\n");
+            foreach (Element scopeBox in unusedScopeBoxes)
+            {
+                messageBuilder.AppendLine($"- {scopeBox.Name}");
+            }
+            messageBuilder.AppendLine("\nDo you want to delete these unused scope boxes?");
+
+            // Show confirmation dialog
+            TaskDialog dialog = new TaskDialog("Delete Unused Scope Boxes");
+            dialog.MainInstruction = "Unused Scope Boxes Detected";
+            dialog.MainContent = messageBuilder.ToString();
+            dialog.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
+            dialog.DefaultButton = TaskDialogResult.No;
+
+            TaskDialogResult result = dialog.Show();
+
+            if (result == TaskDialogResult.Yes)
+            {
+                int deletedScopeBoxCount = 0;
+
+                using (Transaction trans = new Transaction(doc, "Delete Unused Scope Boxes"))
                 {
-                    messageBuilder.AppendLine($"- {name}");
+                    trans.Start();
+                    foreach (Element scopeBox in unusedScopeBoxes)
+                    {
+                        doc.Delete(scopeBox.Id);
+                        deletedScopeBoxCount++;
+                    }
+                    trans.Commit();
                 }
+
+                TaskDialog.Show("Scope Box Cleanup", $"{deletedScopeBoxCount} unused scope boxes were deleted.");
             }
             else
             {
-                messageBuilder.AppendLine("No unused scope boxes found.");
+                TaskDialog.Show("Scope Box Cleanup", "No scope boxes were deleted.");
             }
-
-            // Show TaskDialog with summary
-            TaskDialog.Show("Scope Box Cleanup", messageBuilder.ToString());
 
             return Result.Succeeded;
         }
@@ -82,7 +95,7 @@
         internal static PushButtonData GetButtonData()
         {
             string buttonInternalName = "btnCommand3";
-            string buttonTitle = "Scope Boxes";
+            string buttonTitle = "Delete Unused Scope Boxes";
 
             Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
                 buttonInternalName,
@@ -90,7 +103,7 @@
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 Properties.Resources.DeleteUnusedSBoxes32,
                 Properties.Resources.DeleteUnusedSBoxes16,
-                "Deletes all unused \nscope boxes.");
+                "Find and delete all unused scope boxes in the project.");
 
             return myButtonData.Data;
         }

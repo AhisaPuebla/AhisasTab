@@ -22,6 +22,7 @@ namespace AhisaTestProject
             // 3. Create button data instances
             PushButtonData btnData1 = Command1.GetButtonData();
             PushButtonData btnData2 = Command2.GetButtonData();
+            PushButtonData btnData2B = Command2B.GetButtonData();
             PushButtonData btnData3 = Command3.GetButtonData();
             PushButtonData btnData4 = Command4.GetButtonData();
 
@@ -33,8 +34,11 @@ namespace AhisaTestProject
             PulldownButton pullDownButton = panel.AddItem(pullDownData) as PulldownButton;
 
             // Add the buttons with separators
-            pullDownButton.AddPushButton(btnData1);
             pullDownButton.AddPushButton(btnData2);
+            pullDownButton.AddPushButton(btnData1);
+            pullDownButton.AddPushButton(btnData2B);
+
+
             //pullDownButton.AddSeparator(); // <-- Adds a separator line
             //pullDownButton.AddPushButton(btnData1);
             //
