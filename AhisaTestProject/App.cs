@@ -20,33 +20,59 @@ namespace AhisaTestProject
 
 
             // 3. Create button data instances
-            PushButtonData btnData1 = Command1.GetButtonData();
-            PushButtonData btnData2 = Command2.GetButtonData();
-            PushButtonData btnData2B = Command2B.GetButtonData();
-            PushButtonData btnData3 = Command3.GetButtonData();
-            PushButtonData btnData4 = Command4.GetButtonData();
-            PushButtonData btnData5 = Command5.GetButtonData();
+            PushButtonData btnData1 = Command1.GetButtonData(); //Delete All Non-Placed Groups
+            PushButtonData btnData2 = Command2.GetButtonData(); //Ungroup All Groups
+            PushButtonData btnData2B = Command2B.GetButtonData(); //Ungroup and Delete All Groups
+            PushButtonData btnData3 = Command3.GetButtonData(); //Find and delete all unused scope boxes in the project
+            PushButtonData btnData3B = Command3B.GetButtonData(); //Find and delete all scope boxes in the project
+            PushButtonData btnData4 = Command4.GetButtonData(); //Delete imported DWGs - DOESNT WORK YET
+            PushButtonData btnData5 = Command5.GetButtonData(); //Delete Unplaced Legends
+            PushButtonData btnData5B = Command5B.GetButtonData(); //Delete All Legends
+            PushButtonData btnData6 = Command6.GetButtonData(); //Delete Unused Filters
 
-            // Create the pull-down button
-            PulldownButtonData pullDownData = new PulldownButtonData("Group Actions", "Groups");
-            pullDownData.Image = btnData1.Image; // Set initial image (optional)
-            pullDownData.LargeImage = btnData1.LargeImage;
+            // Create the pull-down button GROUPS
+            PulldownButtonData pullDownDataGroup = new PulldownButtonData("Group Cleanup Actions", "Group \nCleanup");
+            pullDownDataGroup.Image = btnData1.Image; // Set initial image (optional)
+            pullDownDataGroup.LargeImage = btnData1.LargeImage;
 
-            PulldownButton pullDownButton = panel.AddItem(pullDownData) as PulldownButton;
+            PulldownButton pullDownButtonGroups = panel.AddItem(pullDownDataGroup) as PulldownButton;
 
-            // Add the buttons with separators
-            pullDownButton.AddPushButton(btnData2);
-            pullDownButton.AddPushButton(btnData1);
-            pullDownButton.AddPushButton(btnData2B);
+            pullDownButtonGroups.AddPushButton(btnData2);
+            pullDownButtonGroups.AddPushButton(btnData1);
+            pullDownButtonGroups.AddPushButton(btnData2B);
+
+
+            // Create the pull-down button SCOPE BOXES
+            PulldownButtonData pullDownDataSBoxes = new PulldownButtonData("Scope Boxes cleanup actions", "Scope Box \nCleanup");
+            pullDownDataSBoxes.Image = btnData3.Image; // Set initial image (optional)
+            pullDownDataSBoxes.LargeImage = btnData3.LargeImage;
+
+            PulldownButton pullDownButtonSBoxes = panel.AddItem(pullDownDataSBoxes) as PulldownButton;
+
+            pullDownButtonSBoxes.AddPushButton(btnData3);
+            pullDownButtonSBoxes.AddPushButton(btnData3B);
+
+
+            // Create the pull-down button LEGENDS
+            PulldownButtonData pullDownDataLegends = new PulldownButtonData("Legends cleanup actions", "Legend \nCleanup");
+            pullDownDataLegends.Image = btnData5.Image; // Set initial image (optional)
+            pullDownDataLegends.LargeImage = btnData5.LargeImage;
+
+            PulldownButton pullDownButtonLegends = panel.AddItem(pullDownDataLegends) as PulldownButton;
+
+            pullDownButtonLegends.AddPushButton(btnData5);
+            pullDownButtonLegends.AddPushButton(btnData5B);
+
+            PushButton myButton6 = panel.AddItem(btnData6) as PushButton;
 
 
             //pullDownButton.AddSeparator(); // <-- Adds a separator line
             //pullDownButton.AddPushButton(btnData1);
             //
-            PushButton myButton3 = panel.AddItem(btnData3) as PushButton;
-            PushButton myButton5 = panel.AddItem(btnData5) as PushButton;
-            PushButton myButton4 = panel.AddItem(btnData4) as PushButton;
-            
+
+            //PushButton myButton5 = panel.AddItem(btnData5) as PushButton;
+            //PushButton myButton4 = panel.AddItem(btnData4) as PushButton;
+
 
             //panel.AddStackedItems(btnData1, btnData2);
 

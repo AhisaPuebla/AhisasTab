@@ -35,7 +35,7 @@
             messageBuilder.AppendLine("\nDo you want to delete these unplaced legends?");
 
             // Show confirmation dialog
-            TaskDialog dialog = new TaskDialog("Delete Unplaced Legends");
+            TaskDialog dialog = new TaskDialog("Delete Unplaced \nLegends");
             dialog.MainInstruction = "Unplaced Legends Detected";
             dialog.MainContent = messageBuilder.ToString();
             dialog.CommonButtons = TaskDialogCommonButtons.Yes | TaskDialogCommonButtons.No;
@@ -73,7 +73,7 @@
         internal static PushButtonData GetButtonData()
         {
             string buttonInternalName = "btnCommand5";
-            string buttonTitle = "Delete Unplaced Legends";
+            string buttonTitle = "Delete Unplaced \nLegends";
 
             Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
                 buttonInternalName,

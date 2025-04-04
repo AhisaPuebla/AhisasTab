@@ -71,7 +71,7 @@
             {
                 int deletedScopeBoxCount = 0;
 
-                using (Transaction trans = new Transaction(doc, "Delete Unused Scope Boxes"))
+                using (Transaction trans = new Transaction(doc, "Delete Unused \nScope Boxes"))
                 {
                     trans.Start();
                     foreach (Element scopeBox in unusedScopeBoxes)
@@ -95,7 +95,7 @@
         internal static PushButtonData GetButtonData()
         {
             string buttonInternalName = "btnCommand3";
-            string buttonTitle = "Delete Unused Scope Boxes";
+            string buttonTitle = "Delete Unused \nScope Boxes";
 
             Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
                 buttonInternalName,
