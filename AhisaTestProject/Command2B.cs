@@ -101,8 +101,8 @@
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
                 //null,
-                Properties.Resources.UngroupAndDeleteUnusedGroups32,
-                Properties.Resources.UngroupAndDeleteUnusedGroups16,
+                Properties.Resources.UngroupAndDelete32x32,
+                Properties.Resources.UngroupAndDelete16x16,
                 "Ungroup and then delete all detail and model groups in the project.");
 
             return myButtonData.Data;

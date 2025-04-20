@@ -124,22 +124,37 @@
   <data name="DeleteDWG32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeleteDWG32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DeleteUnusedGroups16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeleteUnusedGroups16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DeleteUnplaced16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnplaced16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DeleteUnusedGroups32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeleteUnusedGroups32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="GroupActions32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GroupActions32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DeleteUnusedSBoxes16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeleteUnusedSBoxes16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="GroupActions16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GroupActions16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Ungroup32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ungroup32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Ungroup16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ungroup16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UngroupAndDelete32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupAndDelete32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UngroupAndDelete16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupAndDelete16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ScopeBoxActions16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ScopeBoxActions16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DeleteUnusedSBoxes32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeleteUnusedSBoxes32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="UngroupAndDeleteUnusedGroups16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UngroupAndDeleteUnusedGroups16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DeleteUnusedSBoxes16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnusedSBoxes16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="UngroupAndDeleteUnusedGroups32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UngroupAndDeleteUnusedGroups32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DeleteUnplaced32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnplaced32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

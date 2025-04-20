@@ -32,8 +32,19 @@ namespace AhisaTestProject
 
             // Create the pull-down button GROUPS
             PulldownButtonData pullDownDataGroup = new PulldownButtonData("Group Cleanup Actions", "Group \nCleanup");
-            pullDownDataGroup.Image = btnData1.Image; // Set initial image (optional)
-            pullDownDataGroup.LargeImage = btnData1.LargeImage;
+            //pullDownDataGroup.Image = btnData1.Image; // Set initial image (optional)
+            //pullDownDataGroup.LargeImage = btnData1.LargeImage;
+
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            using (Stream stream = assembly.GetManifestResourceStream("AhisaTestProject.Resources.GroupActions16x16.png")) // use actual resource path
+            {
+                byte[] imageData = new byte[stream.Length];
+                stream.Read(imageData, 0, imageData.Length);
+
+                BitmapImage image = ConvertToImageSource(imageData);
+                pullDownDataGroup.Image = image;
+                pullDownDataGroup.LargeImage = image;
+            }
 
             PulldownButton pullDownButtonGroups = panel.AddItem(pullDownDataGroup) as PulldownButton;
 
@@ -44,8 +55,19 @@ namespace AhisaTestProject
 
             // Create the pull-down button SCOPE BOXES
             PulldownButtonData pullDownDataSBoxes = new PulldownButtonData("Scope Boxes cleanup actions", "Scope Box \nCleanup");
-            pullDownDataSBoxes.Image = btnData3.Image; // Set initial image (optional)
-            pullDownDataSBoxes.LargeImage = btnData3.LargeImage;
+            //pullDownDataSBoxes.Image = btnData3.Image; // Set initial image (optional)
+            //pullDownDataSBoxes.LargeImage = btnData3.LargeImage;
+
+            Assembly assembly2 = Assembly.GetExecutingAssembly();
+            using (Stream stream = assembly.GetManifestResourceStream("AhisaTestProject.Resources.ScopeBoxActions16x16.png")) // use actual resource path
+            {
+                byte[] imageData = new byte[stream.Length];
+                stream.Read(imageData, 0, imageData.Length);
+
+                BitmapImage image = ConvertToImageSource(imageData);
+                pullDownDataSBoxes.Image = image;
+                pullDownDataSBoxes.LargeImage = image;
+            }
 
             PulldownButton pullDownButtonSBoxes = panel.AddItem(pullDownDataSBoxes) as PulldownButton;
 

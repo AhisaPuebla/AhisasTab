@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
 		<UseWPF>true</UseWPF>
@@ -7,8 +7,8 @@
 		<PlatformTarget>x64</PlatformTarget>
 		<ImplicitUsings>true</ImplicitUsings>
 		<PublishAddinFiles>true</PublishAddinFiles>
-		<Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R24;Debug R25</Configurations>
-		<Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R24;Release R25</Configurations>
+		<Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R24;Debug R25;Debug R26</Configurations>
+		<Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R24;Release R25;Release R26</Configurations>
 		<Nullable>disable</Nullable>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
@@ -52,6 +52,13 @@
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<DefineConstants>$(DefineConstants);REVIT2025</DefineConstants>
   </PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.Contains('R26'))">
+		<RevitVersion>2026</RevitVersion>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<DefineConstants>$(DefineConstants);REVIT2026</DefineConstants>
+	</PropertyGroup>
 	
 	<PropertyGroup Condition="$(Configuration.Contains('Debug'))">
 		<Optimize>False</Optimize>
@@ -74,10 +81,22 @@
 	<ItemGroup>
 	  <None Remove="Resources\DeleteDWG16.png" />
 	  <None Remove="Resources\DeleteDWG32.png" />
+	  <None Remove="Resources\DeleteUnplaced16x16.png" />
+	  <None Remove="Resources\DeleteUnplaced32x32.png" />
 	  <None Remove="Resources\DeleteUnusedGroups16.png" />
 	  <None Remove="Resources\DeleteUnusedGroups32.png" />
 	  <None Remove="Resources\DeleteUnusedSBoxes16.png" />
 	  <None Remove="Resources\DeleteUnusedSBoxes32.png" />
+	  <None Remove="Resources\GroupActions16.png" />
+	  <None Remove="Resources\GroupActions16x16.png" />
+	  <None Remove="Resources\GroupActions32.png" />
+	  <None Remove="Resources\GroupActions32x32.png" />
+	  <None Remove="Resources\GroupActions32x32_padded.png" />
+	  <None Remove="Resources\ScopeBoxActions16x16.png" />
+	  <None Remove="Resources\Ungroup16x16.png" />
+	  <None Remove="Resources\Ungroup32x32.png" />
+	  <None Remove="Resources\UngroupAndDelete16x16.png" />
+	  <None Remove="Resources\UngroupAndDelete32x32.png" />
 	  <None Remove="Resources\UngroupAndDeleteUnusedGroups16.png" />
 	  <None Remove="Resources\UngroupAndDeleteUnusedGroups32.png" />
 	</ItemGroup>
@@ -85,10 +104,22 @@
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\DeleteDWG16.png" />
 	  <EmbeddedResource Include="Resources\DeleteDWG32.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnplaced16x16.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnplaced32x32.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedGroups16.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedGroups32.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes16.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes32.png" />
+	  <EmbeddedResource Include="Resources\GroupActions16.png" />
+	  <EmbeddedResource Include="Resources\GroupActions16x16.png" />
+	  <EmbeddedResource Include="Resources\GroupActions32.png" />
+	  <EmbeddedResource Include="Resources\GroupActions32x32.png" />
+	  <EmbeddedResource Include="Resources\GroupActions32x32_padded.png" />
+	  <EmbeddedResource Include="Resources\ScopeBoxActions16x16.png" />
+	  <EmbeddedResource Include="Resources\Ungroup16x16.png" />
+	  <EmbeddedResource Include="Resources\Ungroup32x32.png" />
+	  <EmbeddedResource Include="Resources\UngroupAndDelete16x16.png" />
+	  <EmbeddedResource Include="Resources\UngroupAndDelete32x32.png" />
 	  <EmbeddedResource Include="Resources\UngroupAndDeleteUnusedGroups16.png" />
 	  <EmbeddedResource Include="Resources\UngroupAndDeleteUnusedGroups32.png" />
 	</ItemGroup>
