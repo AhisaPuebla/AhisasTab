@@ -79,6 +79,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\DeleteAllSBoxes16x16.png" />
+	  <None Remove="Resources\DeleteAllSBoxes32x32.png" />
 	  <None Remove="Resources\DeleteDWG16.png" />
 	  <None Remove="Resources\DeleteDWG32.png" />
 	  <None Remove="Resources\DeleteUnplaced16x16.png" />
@@ -86,7 +88,9 @@
 	  <None Remove="Resources\DeleteUnusedGroups16.png" />
 	  <None Remove="Resources\DeleteUnusedGroups32.png" />
 	  <None Remove="Resources\DeleteUnusedSBoxes16.png" />
+	  <None Remove="Resources\DeleteUnusedSBoxes16x16.png" />
 	  <None Remove="Resources\DeleteUnusedSBoxes32.png" />
+	  <None Remove="Resources\DeleteUnusedSBoxes32x32.png" />
 	  <None Remove="Resources\GroupActions16.png" />
 	  <None Remove="Resources\GroupActions16x16.png" />
 	  <None Remove="Resources\GroupActions32.png" />
@@ -102,6 +106,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Resources\DeleteAllSBoxes16x16.png" />
+	  <EmbeddedResource Include="Resources\DeleteAllSBoxes32x32.png" />
 	  <EmbeddedResource Include="Resources\DeleteDWG16.png" />
 	  <EmbeddedResource Include="Resources\DeleteDWG32.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnplaced16x16.png" />
@@ -109,7 +115,9 @@
 	  <EmbeddedResource Include="Resources\DeleteUnusedGroups16.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedGroups32.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes16.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes16x16.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes32.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes32x32.png" />
 	  <EmbeddedResource Include="Resources\GroupActions16.png" />
 	  <EmbeddedResource Include="Resources\GroupActions16x16.png" />
 	  <EmbeddedResource Include="Resources\GroupActions32.png" />

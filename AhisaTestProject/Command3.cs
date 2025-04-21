@@ -101,8 +101,8 @@
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.DeleteUnusedSBoxes32,
-                Properties.Resources.DeleteUnusedSBoxes16,
+                Properties.Resources.DeleteUnusedSBoxes32x32,
+                Properties.Resources.DeleteUnusedSBoxes16x16,
                 "Find and delete all unused scope boxes in the project.");
 
             return myButtonData.Data;

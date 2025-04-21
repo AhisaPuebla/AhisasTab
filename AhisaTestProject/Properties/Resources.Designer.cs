@@ -63,6 +63,26 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DeleteAllSBoxes16x16 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteAllSBoxes16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DeleteAllSBoxes32x32 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteAllSBoxes32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] DeleteDWG16 {
             get {
                 object obj = ResourceManager.GetObject("DeleteDWG16", resourceCulture);
@@ -113,9 +133,29 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DeleteUnusedSBoxes16x16 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUnusedSBoxes16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] DeleteUnusedSBoxes32 {
             get {
                 object obj = ResourceManager.GetObject("DeleteUnusedSBoxes32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DeleteUnusedSBoxes32x32 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUnusedSBoxes32x32", resourceCulture);
                 return ((byte[])(obj));
             }
         }
