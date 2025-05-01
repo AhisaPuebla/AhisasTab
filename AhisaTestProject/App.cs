@@ -81,6 +81,18 @@ namespace AhisaTestProject
             pullDownDataLegends.LargeImage = btnData5.LargeImage;
 
             PulldownButton pullDownButtonLegends = panel.AddItem(pullDownDataLegends) as PulldownButton;
+            Assembly assembly3 = Assembly.GetExecutingAssembly();
+            using (Stream stream = assembly.GetManifestResourceStream("AhisaTestProject.Resources.LegendActions16x16.png")) // use actual resource path
+            {
+                byte[] imageData = new byte[stream.Length];
+                stream.Read(imageData, 0, imageData.Length);
+
+                BitmapImage image = ConvertToImageSource(imageData);
+                pullDownButtonLegends.Image = image;
+                pullDownButtonLegends.LargeImage = image;
+            }
+
+
 
             pullDownButtonLegends.AddPushButton(btnData5);
             pullDownButtonLegends.AddPushButton(btnData5B);

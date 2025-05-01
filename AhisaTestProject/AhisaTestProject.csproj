@@ -96,6 +96,7 @@
 	  <None Remove="Resources\GroupActions32.png" />
 	  <None Remove="Resources\GroupActions32x32.png" />
 	  <None Remove="Resources\GroupActions32x32_padded.png" />
+	  <None Remove="Resources\LegendActions16x16.png" />
 	  <None Remove="Resources\ScopeBoxActions16x16.png" />
 	  <None Remove="Resources\Ungroup16x16.png" />
 	  <None Remove="Resources\Ungroup32x32.png" />
@@ -123,6 +124,7 @@
 	  <EmbeddedResource Include="Resources\GroupActions32.png" />
 	  <EmbeddedResource Include="Resources\GroupActions32x32.png" />
 	  <EmbeddedResource Include="Resources\GroupActions32x32_padded.png" />
+	  <EmbeddedResource Include="Resources\LegendActions16x16.png" />
 	  <EmbeddedResource Include="Resources\ScopeBoxActions16x16.png" />
 	  <EmbeddedResource Include="Resources\Ungroup16x16.png" />
 	  <EmbeddedResource Include="Resources\Ungroup32x32.png" />

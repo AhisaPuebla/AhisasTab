@@ -183,6 +183,16 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] LegendActions16x16 {
+            get {
+                object obj = ResourceManager.GetObject("LegendActions16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ScopeBoxActions16x16 {
             get {
                 object obj = ResourceManager.GetObject("ScopeBoxActions16x16", resourceCulture);
