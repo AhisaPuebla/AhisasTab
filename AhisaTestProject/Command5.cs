@@ -73,14 +73,14 @@
         internal static PushButtonData GetButtonData()
         {
             string buttonInternalName = "btnCommand5";
-            string buttonTitle = "Delete Unplaced \nLegends";
+            string buttonTitle = "Delete Unplaced Legends";
 
             Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.DeleteUnusedSBoxes32,
-                Properties.Resources.DeleteDWG16,
+                Properties.Resources.DeleteUnusedLegends32x32,
+                Properties.Resources.DeleteUnusedLegends32x32,
                 "Finds and optionally deletes unplaced legends in the project.");
 
             return myButtonData.Data;

@@ -29,6 +29,7 @@ namespace AhisaTestProject
             PushButtonData btnData5 = Command5.GetButtonData(); //Delete Unplaced Legends
             PushButtonData btnData5B = Command5B.GetButtonData(); //Delete All Legends
             PushButtonData btnData6 = Command6.GetButtonData(); //Delete Unused Filters
+            PushButtonData btnData7 = Command7.GetButtonData(); //Delete UnusedLineTypes
 
             // Create the pull-down button GROUPS
             PulldownButtonData pullDownDataGroup = new PulldownButtonData("Group Cleanup Actions", "Group \nCleanup");
@@ -98,13 +99,13 @@ namespace AhisaTestProject
             pullDownButtonLegends.AddPushButton(btnData5B);
 
             PushButton myButton6 = panel.AddItem(btnData6) as PushButton;
-
+            PushButton myButton7 = panel.AddItem(btnData7) as PushButton;
 
             //pullDownButton.AddSeparator(); // <-- Adds a separator line
             //pullDownButton.AddPushButton(btnData1);
             //
 
-            //PushButton myButton5 = panel.AddItem(btnData5) as PushButton;
+
             //PushButton myButton4 = panel.AddItem(btnData4) as PushButton;
 
 

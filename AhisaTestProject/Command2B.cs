@@ -14,85 +14,144 @@
             int deletedDetailCount = 0;
             int deletedModelCount = 0;
 
-            using (Transaction trans = new Transaction(doc, "Ungroup and Delete All Groups"))
+            // Collect all groups and group types up front
+            var detailGroups = new FilteredElementCollector(doc)
+                .OfCategory(BuiltInCategory.OST_IOSDetailGroups)
+                .WhereElementIsNotElementType()
+                .Cast<Group>()
+                .ToList();
+
+            var modelGroups = new FilteredElementCollector(doc)
+                .OfCategory(BuiltInCategory.OST_IOSModelGroups)
+                .WhereElementIsNotElementType()
+                .Cast<Group>()
+                .ToList();
+
+            var detailGroupTypes = new FilteredElementCollector(doc)
+                .OfCategory(BuiltInCategory.OST_IOSDetailGroups)
+                .WhereElementIsElementType()
+                .ToList();
+
+            var modelGroupTypes = new FilteredElementCollector(doc)
+                .OfCategory(BuiltInCategory.OST_IOSModelGroups)
+                .WhereElementIsElementType()
+                .ToList();
+
+            int totalSteps = detailGroups.Count + modelGroups.Count + detailGroupTypes.Count + modelGroupTypes.Count;
+
+            if (totalSteps == 0)
             {
-                trans.Start();
-
-                // Step 1: Ungroup all placed detail groups
-                List<Group> detailGroups = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_IOSDetailGroups)
-                    .WhereElementIsNotElementType()
-                    .Cast<Group>()
-                    .ToList();
-
-                foreach (Group group in detailGroups)
-                {
-                    group.UngroupMembers();
-                    explodedDetailCount++;
-                }
-
-                // Step 2: Ungroup all placed model groups
-                List<Group> modelGroups = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_IOSModelGroups)
-                    .WhereElementIsNotElementType()
-                    .Cast<Group>()
-                    .ToList();
-
-                foreach (Group group in modelGroups)
-                {
-                    group.UngroupMembers();
-                    explodedModelCount++;
-                }
-
-                trans.Commit();
+                TaskDialog.Show("Group Cleanup", "No groups or group types found.");
+                return Result.Succeeded;
             }
 
-            using (Transaction trans = new Transaction(doc, "Delete All Non-Placed Groups"))
+            var progressBar = new ProgressBarHelper();
+            progressBar.ShowProgress(totalSteps);
+
+            try
             {
-                trans.Start();
+                int current = 0;
 
-                // Step 3: Delete all remaining detail group types
-                List<Element> detailGroupTypes = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_IOSDetailGroups)
-                    .WhereElementIsElementType()
-                    .ToList();
-
-                foreach (Element groupType in detailGroupTypes)
+                using (Transaction trans = new Transaction(doc, "Ungroup All Groups"))
                 {
-                    doc.Delete(groupType.Id);
-                    deletedDetailCount++;
+                    trans.Start();
+
+                    foreach (Group group in detailGroups)
+                    {
+                        if (progressBar.IsCancelled())
+                        {
+                            trans.RollBack();
+                            progressBar.UpdateProgress(current, "Operation cancelled.");
+                            progressBar.CloseProgress();
+                            return Result.Cancelled;
+                        }
+
+                        group.UngroupMembers();
+                        explodedDetailCount++;
+                        current++;
+                        progressBar.UpdateProgress(current, $"Ungrouped {current} of {totalSteps}");
+                    }
+
+                    foreach (Group group in modelGroups)
+                    {
+                        if (progressBar.IsCancelled())
+                        {
+                            trans.RollBack();
+                            progressBar.UpdateProgress(current, "Operation cancelled.");
+                            progressBar.CloseProgress();
+                            return Result.Cancelled;
+                        }
+
+                        group.UngroupMembers();
+                        explodedModelCount++;
+                        current++;
+                        progressBar.UpdateProgress(current, $"Ungrouped {current} of {totalSteps}");
+                    }
+
+                    trans.Commit();
                 }
 
-                // Step 4: Delete all remaining model group types
-                List<Element> modelGroupTypes = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_IOSModelGroups)
-                    .WhereElementIsElementType()
-                    .ToList();
-
-                foreach (Element groupType in modelGroupTypes)
+                using (Transaction trans = new Transaction(doc, "Delete All Group Types"))
                 {
-                    doc.Delete(groupType.Id);
-                    deletedModelCount++;
+                    trans.Start();
+
+                    foreach (Element groupType in detailGroupTypes)
+                    {
+                        if (progressBar.IsCancelled())
+                        {
+                            trans.RollBack();
+                            progressBar.UpdateProgress(current, "Operation cancelled.");
+                            progressBar.CloseProgress();
+                            return Result.Cancelled;
+                        }
+
+                        doc.Delete(groupType.Id);
+                        deletedDetailCount++;
+                        current++;
+                        progressBar.UpdateProgress(current, $"Deleted {current} of {totalSteps}");
+                    }
+
+                    foreach (Element groupType in modelGroupTypes)
+                    {
+                        if (progressBar.IsCancelled())
+                        {
+                            trans.RollBack();
+                            progressBar.UpdateProgress(current, "Operation cancelled.");
+                            progressBar.CloseProgress();
+                            return Result.Cancelled;
+                        }
+
+                        doc.Delete(groupType.Id);
+                        deletedModelCount++;
+                        current++;
+                        progressBar.UpdateProgress(current, $"Deleted {current} of {totalSteps}");
+                    }
+
+                    trans.Commit();
                 }
 
-                trans.Commit();
+                progressBar.UpdateProgress(totalSteps, "Cleanup completed.");
+                System.Threading.Thread.Sleep(1000);
+                progressBar.CloseProgress();
+
+                TaskDialog.Show("Group Cleanup",
+                    $"{explodedDetailCount} placed detail groups ungrouped.\n" +
+                    $"{explodedModelCount} placed model groups ungrouped.\n\n" +
+                    $"{deletedDetailCount} unplaced detail group types deleted.\n" +
+                    $"{deletedModelCount} unplaced model group types deleted.");
+
+                return Result.Succeeded;
             }
-
-            // Show TaskDialog with summary of actions
-            TaskDialog.Show("Group Cleanup",
-                $"{explodedDetailCount} placed detail groups ungrouped.\n" +
-                $"{explodedModelCount} placed model groups ungrouped.\n\n" +
-                $"{deletedDetailCount} unplaced detail group types deleted.\n" +
-                $"{deletedModelCount} unplaced model group types deleted.");
-
-            return Result.Succeeded;
+            catch (Exception ex)
+            {
+                progressBar.CloseProgress();
+                TaskDialog.Show("Error", ex.Message);
+                return Result.Failed;
+            }
         }
-
 
         internal static PushButtonData GetButtonData()
         {
-
-            // use this method to define the properties for this command in the Revit ribbon
             string buttonInternalName = "btnCommand2B";
             string buttonTitle = "Ungroup and \nDelete All Groups";
 
@@ -100,13 +159,11 @@
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                //null,
                 Properties.Resources.UngroupAndDelete32x32,
                 Properties.Resources.UngroupAndDelete16x16,
                 "Ungroup and then delete all detail and model groups in the project.");
 
             return myButtonData.Data;
-
         }
     }
 

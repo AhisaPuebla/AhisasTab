@@ -50,14 +50,14 @@
         internal static PushButtonData GetButtonData()
         {
             string buttonInternalName = "btnCommand5B";
-            string buttonTitle = "Delete All \nLegends";
+            string buttonTitle = "Delete All Legends";
 
             Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.DeleteUnusedSBoxes32,
-                Properties.Resources.DeleteDWG16,
+                Properties.Resources.DeleteAllLegends32x32,
+                Properties.Resources.DeleteAllLegends32x32,
                 "Deletes all legend views in the project.");
 
             return myButtonData.Data;

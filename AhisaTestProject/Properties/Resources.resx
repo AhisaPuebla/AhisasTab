@@ -172,4 +172,13 @@
   <data name="LegendActions16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LegendActions16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="DeleteUnusedLegends32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnusedLegends32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DeleteAllLegends32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteAllLegends32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DeleteUnusedVFilters16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnusedVFilters16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

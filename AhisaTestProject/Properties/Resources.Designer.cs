@@ -63,6 +63,16 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DeleteAllLegends32x32 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteAllLegends32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] DeleteAllSBoxes16x16 {
             get {
                 object obj = ResourceManager.GetObject("DeleteAllSBoxes16x16", resourceCulture);
@@ -123,6 +133,16 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DeleteUnusedLegends32x32 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUnusedLegends32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] DeleteUnusedSBoxes16 {
             get {
                 object obj = ResourceManager.GetObject("DeleteUnusedSBoxes16", resourceCulture);
@@ -156,6 +176,16 @@ namespace AhisaTestProject.Properties {
         internal static byte[] DeleteUnusedSBoxes32x32 {
             get {
                 object obj = ResourceManager.GetObject("DeleteUnusedSBoxes32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DeleteUnusedVFilters16x16 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUnusedVFilters16x16", resourceCulture);
                 return ((byte[])(obj));
             }
         }

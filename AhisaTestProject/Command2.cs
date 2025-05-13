@@ -9,46 +9,63 @@
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            int ungroupedDetailCount = 0;
-            int ungroupedModelCount = 0;
+            int ungroupedCount = 0;
 
-            using (Transaction trans = new Transaction(doc, "Ungroup All Groups"))
+            // Collect all groups first
+            List<Group> allGroups = new FilteredElementCollector(doc)
+                .WhereElementIsNotElementType()
+                .OfClass(typeof(Group))
+                .Cast<Group>()
+                .ToList();
+
+            int totalCount = allGroups.Count;
+            if (totalCount == 0)
             {
-                trans.Start();
-
-                // Collect and ungroup all placed detail groups
-                List<Group> detailGroups = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_IOSDetailGroups)
-                    .WhereElementIsNotElementType()
-                    .Cast<Group>()
-                    .ToList();
-
-                foreach (Group group in detailGroups)
-                {
-                    group.UngroupMembers();
-                    ungroupedDetailCount++;
-                }
-
-                // Collect and ungroup all placed model groups
-                List<Group> modelGroups = new FilteredElementCollector(doc)
-                    .OfCategory(BuiltInCategory.OST_IOSModelGroups)
-                    .WhereElementIsNotElementType()
-                    .Cast<Group>()
-                    .ToList();
-
-                foreach (Group group in modelGroups)
-                {
-                    group.UngroupMembers();
-                    ungroupedModelCount++;
-                }
-
-                trans.Commit();
+                TaskDialog.Show("Group Cleanup", "No groups found.");
+                return Result.Succeeded;
             }
 
-            // Show TaskDialog with summary of actions
-            TaskDialog.Show("Group Cleanup",
-                $"{ungroupedDetailCount} placed detail groups ungrouped.\n" +
-                $"{ungroupedModelCount} placed model groups ungrouped.");
+            ProgressBarHelper progressBar = new ProgressBarHelper();
+
+            try
+            {
+                progressBar.ShowProgress(totalCount);
+
+                using (Transaction trans = new Transaction(doc, "Ungroup All Groups"))
+                {
+                    trans.Start();
+
+                    int current = 0;
+                    foreach (Group group in allGroups)
+                    {
+                        if (progressBar.IsCancelled())
+                        {
+                            progressBar.UpdateProgress(current, "Operation cancelled by user.");
+                            trans.RollBack();
+                            return Result.Cancelled;
+                        }
+
+                        group.UngroupMembers();
+                        ungroupedCount++;
+                        current++;
+
+                        progressBar.UpdateProgress(current, $"Ungrouping {current} of {totalCount} groups");
+                    }
+
+                    trans.Commit();
+                }
+
+                progressBar.UpdateProgress(totalCount, "Ungrouping complete!");
+                System.Threading.Thread.Sleep(1000);
+                progressBar.CloseProgress();
+
+                TaskDialog.Show("Group Cleanup", $"{ungroupedCount} groups ungrouped.");
+            }
+            catch (Exception ex)
+            {
+                progressBar.CloseProgress();
+                TaskDialog.Show("Error", ex.Message);
+            }
 
             return Result.Succeeded;
         }

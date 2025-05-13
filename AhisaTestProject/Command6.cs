@@ -71,8 +71,8 @@
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.DeleteUnusedSBoxes32,
-                Properties.Resources.DeleteDWG16,
+                Properties.Resources.DeleteUnusedVFilters16x16,
+                Properties.Resources.DeleteUnusedVFilters16x16,
                 "Deletes all unused view filters from the project.");
 
             return myButtonData.Data;
