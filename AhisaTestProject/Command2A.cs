@@ -1,7 +1,7 @@
 ﻿namespace AhisaTestProject
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command2 : IExternalCommand
+    public class Command2A : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -9,16 +9,16 @@
             Document doc = uidoc.Document;
             int ungroupedCount = 0;
 
-            List<Group> detailGroups = new FilteredElementCollector(doc)
+            List<Group> modelGroups = new FilteredElementCollector(doc)
                 .WhereElementIsNotElementType()
                 .OfClass(typeof(Group))
                 .Cast<Group>()
-                .Where(g => g.GroupType?.Category?.Id.IntegerValue == (int)BuiltInCategory.OST_IOSDetailGroups)
+                .Where(g => g.GroupType?.Category?.Id.IntegerValue == (int)BuiltInCategory.OST_IOSModelGroups)
                 .ToList();
 
-            if (!detailGroups.Any())
+            if (!modelGroups.Any())
             {
-                TaskDialog.Show("Ungroup 2D Groups", "No detail groups found.");
+                TaskDialog.Show("Ungroup 3D Groups", "No model groups found.");
                 return Result.Succeeded;
             }
 
@@ -26,13 +26,13 @@
 
             try
             {
-                progressBar.ShowProgress(detailGroups.Count);
+                progressBar.ShowProgress(modelGroups.Count);
 
-                using (Transaction trans = new Transaction(doc, "Ungroup Detail Groups"))
+                using (Transaction trans = new Transaction(doc, "Ungroup Model Groups"))
                 {
                     trans.Start();
 
-                    for (int i = 0; i < detailGroups.Count; i++)
+                    for (int i = 0; i < modelGroups.Count; i++)
                     {
                         if (progressBar.IsCancelled())
                         {
@@ -41,19 +41,19 @@
                             return Result.Cancelled;
                         }
 
-                        detailGroups[i].UngroupMembers();
+                        modelGroups[i].UngroupMembers();
                         ungroupedCount++;
-                        progressBar.UpdateProgress(i + 1, $"Ungrouping {i + 1} of {detailGroups.Count} detail groups");
+                        progressBar.UpdateProgress(i + 1, $"Ungrouping {i + 1} of {modelGroups.Count} model groups");
                     }
 
                     trans.Commit();
                 }
 
-                progressBar.UpdateProgress(detailGroups.Count, "Detail group ungrouping complete!");
+                progressBar.UpdateProgress(modelGroups.Count, "Model group ungrouping complete!");
                 System.Threading.Thread.Sleep(1000);
                 progressBar.CloseProgress();
 
-                TaskDialog.Show("Ungroup 2D Groups", $"{ungroupedCount} detail groups ungrouped.");
+                TaskDialog.Show("Ungroup 3D Groups", $"{ungroupedCount} model groups ungrouped.");
             }
             catch (Exception ex)
             {
@@ -67,12 +67,12 @@
         internal static PushButtonData GetButtonData()
         {
             return new Common.ButtonDataClass(
-                "btnUngroupDetailGroups",
-                "Ungroup Detail Groups",
+                "btnUngroupModelGroups",
+                "Ungroup All Model Groups",
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.UngroupDGroups32x32,
-                Properties.Resources.UngroupDGroups16x16,
-                "Ungroup all placed detail groups in the project.").Data;
+                Properties.Resources.UngroupMGroups32x32,
+                Properties.Resources.UngroupMGroups16x16,
+                "Ungroup all placed model groups in the project.").Data;
         }
     }
 }

@@ -86,9 +86,14 @@
 	  <None Remove="Resources\DeleteDWG32.png" />
 	  <None Remove="Resources\DeleteUnplaced16x16.png" />
 	  <None Remove="Resources\DeleteUnplaced32x32.png" />
+	  <None Remove="Resources\DeleteUnusedDGroups16x16.png" />
+	  <None Remove="Resources\DeleteUnusedDGroups32x32.png" />
 	  <None Remove="Resources\DeleteUnusedGroups16.png" />
 	  <None Remove="Resources\DeleteUnusedGroups32.png" />
 	  <None Remove="Resources\DeleteUnusedLegends32x32.png" />
+	  <None Remove="Resources\DeleteUnusedLTypes32x32.png" />
+	  <None Remove="Resources\DeleteUnusedMGroups16x16.png" />
+	  <None Remove="Resources\DeleteUnusedMGroups32x32.png" />
 	  <None Remove="Resources\DeleteUnusedSBoxes16.png" />
 	  <None Remove="Resources\DeleteUnusedSBoxes16x16.png" />
 	  <None Remove="Resources\DeleteUnusedSBoxes32.png" />
@@ -107,6 +112,13 @@
 	  <None Remove="Resources\UngroupAndDelete32x32.png" />
 	  <None Remove="Resources\UngroupAndDeleteUnusedGroups16.png" />
 	  <None Remove="Resources\UngroupAndDeleteUnusedGroups32.png" />
+	  <None Remove="Resources\UngroupDeleteDGroups16x16.png" />
+	  <None Remove="Resources\UngroupDeleteMGroups16x16.png" />
+	  <None Remove="Resources\UngroupDeleteMGroups32x32.png" />
+	  <None Remove="Resources\UngroupDGroups16x16.png" />
+	  <None Remove="Resources\UngroupDGroups32x32.png" />
+	  <None Remove="Resources\UngroupMGroups16x16.png" />
+	  <None Remove="Resources\UngroupMGroups32x32.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -117,9 +129,14 @@
 	  <EmbeddedResource Include="Resources\DeleteDWG32.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnplaced16x16.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnplaced32x32.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnusedDGroups16x16.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnusedDGroups32x32.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedGroups16.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedGroups32.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedLegends32x32.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnusedLTypes32x32.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnusedMGroups16x16.png" />
+	  <EmbeddedResource Include="Resources\DeleteUnusedMGroups32x32.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes16.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes16x16.png" />
 	  <EmbeddedResource Include="Resources\DeleteUnusedSBoxes32.png" />
@@ -138,6 +155,13 @@
 	  <EmbeddedResource Include="Resources\UngroupAndDelete32x32.png" />
 	  <EmbeddedResource Include="Resources\UngroupAndDeleteUnusedGroups16.png" />
 	  <EmbeddedResource Include="Resources\UngroupAndDeleteUnusedGroups32.png" />
+	  <EmbeddedResource Include="Resources\UngroupDeleteDGroups16x16.png" />
+	  <EmbeddedResource Include="Resources\UngroupDeleteMGroups16x16.png" />
+	  <EmbeddedResource Include="Resources\UngroupDeleteMGroups32x32.png" />
+	  <EmbeddedResource Include="Resources\UngroupDGroups16x16.png" />
+	  <EmbeddedResource Include="Resources\UngroupDGroups32x32.png" />
+	  <EmbeddedResource Include="Resources\UngroupMGroups16x16.png" />
+	  <EmbeddedResource Include="Resources\UngroupMGroups32x32.png" />
 	</ItemGroup>
 	
 	<ItemGroup>

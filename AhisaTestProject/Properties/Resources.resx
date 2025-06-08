@@ -181,4 +181,43 @@
   <data name="DeleteUnusedVFilters16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeleteUnusedVFilters16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="DeleteUnusedLTypes32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnusedLTypes32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DeleteUnusedDGroups16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnusedDGroups16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DeleteUnusedDGroups32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnusedDGroups32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DeleteUnusedMGroups32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnusedMGroups32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DeleteUnusedMGroups16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeleteUnusedMGroups16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UngroupDeleteDGroups16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupDeleteDGroups16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UngroupDGroups32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupDGroups32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UngroupMGroups32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupMGroups32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UngroupDGroups16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupDGroups16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UngroupMGroups16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupMGroups16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UngroupDeleteMGroups16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupDeleteMGroups16x16.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UngroupDeleteMGroups32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupDeleteMGroups32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UngroupDeleteDGroups32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UngroupDeleteDGroups32x32.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -20,9 +20,13 @@ namespace AhisaTestProject
 
 
             // 3. Create button data instances
-            PushButtonData btnData1 = Command1.GetButtonData(); //Delete All Non-Placed Groups
-            PushButtonData btnData2 = Command2.GetButtonData(); //Ungroup All Groups
-            PushButtonData btnData2B = Command2B.GetButtonData(); //Ungroup and Delete All Groups
+            PushButtonData btnData1 = Command1.GetButtonData(); //Delete All Non-Placed Groups 2D
+            PushButtonData btnData1A = Command1A.GetButtonData(); //Delete All Non-Placed Groups 3D
+            PushButtonData btnData2 = Command2.GetButtonData(); //Ungroup All Groups 2D
+            PushButtonData btnData2A = Command2A.GetButtonData(); //Ungroup All Groups 3D
+            PushButtonData btnData2B = Command2B.GetButtonData(); //Ungroup and Delete All Groups 2D
+            PushButtonData btnData2C = Command2C.GetButtonData(); //Ungroup and Delete All Groups 3D
+
             PushButtonData btnData3 = Command3.GetButtonData(); //Find and delete all unused scope boxes in the project
             PushButtonData btnData3B = Command3B.GetButtonData(); //Find and delete all scope boxes in the project
             PushButtonData btnData4 = Command4.GetButtonData(); //Delete imported DWGs - DOESNT WORK YET
@@ -49,9 +53,14 @@ namespace AhisaTestProject
 
             PulldownButton pullDownButtonGroups = panel.AddItem(pullDownDataGroup) as PulldownButton;
 
-            pullDownButtonGroups.AddPushButton(btnData2);
+            
             pullDownButtonGroups.AddPushButton(btnData1);
+            pullDownButtonGroups.AddPushButton(btnData2);
             pullDownButtonGroups.AddPushButton(btnData2B);
+            pullDownButtonGroups.AddPushButton(btnData1A);
+            pullDownButtonGroups.AddPushButton(btnData2A);
+            pullDownButtonGroups.AddPushButton(btnData2C);
+
 
 
             // Create the pull-down button SCOPE BOXES

@@ -1,31 +1,31 @@
 ﻿namespace AhisaTestProject
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command2B : IExternalCommand
+    public class Command2C : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            var detailGroups = new FilteredElementCollector(doc)
-                .OfCategory(BuiltInCategory.OST_IOSDetailGroups)
+            var modelGroups = new FilteredElementCollector(doc)
+                .OfCategory(BuiltInCategory.OST_IOSModelGroups)
                 .WhereElementIsNotElementType()
                 .Cast<Group>()
                 .ToList();
 
-            var detailGroupTypes = new FilteredElementCollector(doc)
-                .OfCategory(BuiltInCategory.OST_IOSDetailGroups)
+            var modelGroupTypes = new FilteredElementCollector(doc)
+                .OfCategory(BuiltInCategory.OST_IOSModelGroups)
                 .WhereElementIsElementType()
                 .ToList();
 
             int explodedCount = 0;
             int deletedCount = 0;
-            int totalSteps = detailGroups.Count + detailGroupTypes.Count;
+            int totalSteps = modelGroups.Count + modelGroupTypes.Count;
 
             if (totalSteps == 0)
             {
-                TaskDialog.Show("Detail Group Cleanup", "No detail groups or group types found.");
+                TaskDialog.Show("Model Group Cleanup", "No model groups or group types found.");
                 return Result.Succeeded;
             }
 
@@ -35,10 +35,10 @@
 
             try
             {
-                using (Transaction trans = new Transaction(doc, "Ungroup Detail Groups"))
+                using (Transaction trans = new Transaction(doc, "Ungroup Model Groups"))
                 {
                     trans.Start();
-                    foreach (Group group in detailGroups)
+                    foreach (Group group in modelGroups)
                     {
                         if (progressBar.IsCancelled())
                         {
@@ -54,10 +54,10 @@
                     trans.Commit();
                 }
 
-                using (Transaction trans = new Transaction(doc, "Delete Detail Group Types"))
+                using (Transaction trans = new Transaction(doc, "Delete Model Group Types"))
                 {
                     trans.Start();
-                    foreach (Element groupType in detailGroupTypes)
+                    foreach (Element groupType in modelGroupTypes)
                     {
                         if (progressBar.IsCancelled())
                         {
@@ -73,12 +73,12 @@
                     trans.Commit();
                 }
 
-                progressBar.UpdateProgress(totalSteps, "Detail group cleanup complete.");
+                progressBar.UpdateProgress(totalSteps, "Model group cleanup complete.");
                 System.Threading.Thread.Sleep(1000);
                 progressBar.CloseProgress();
 
-                TaskDialog.Show("Detail Group Cleanup",
-                    $"{explodedCount} detail groups ungrouped.\n{deletedCount} unplaced detail group types deleted.");
+                TaskDialog.Show("Model Group Cleanup",
+                    $"{explodedCount} model groups ungrouped.\n{deletedCount} unplaced model group types deleted.");
 
                 return Result.Succeeded;
             }
@@ -93,12 +93,12 @@
         internal static PushButtonData GetButtonData()
         {
             return new Common.ButtonDataClass(
-                "btnUngroupDeleteDetailGroups",
-                "Ungroup and Delete all Detail Groups ",
+                "btnUngroupDeleteModelGroups",
+                "Ungroup and Delete Model Groups",
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,
-                Properties.Resources.UngroupDeleteDGroups32x32,
-                Properties.Resources.UngroupDeleteDGroups16x16,
-                "Ungroup and then delete all detail groups in the project.").Data;
+                Properties.Resources.UngroupDeleteMGroups32x32,
+                Properties.Resources.UngroupDeleteMGroups16x16,
+                "Ungroup and then delete all model groups in the project.").Data;
         }
     }
 

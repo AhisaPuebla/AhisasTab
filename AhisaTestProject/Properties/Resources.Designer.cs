@@ -133,9 +133,59 @@ namespace AhisaTestProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DeleteUnusedDGroups16x16 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUnusedDGroups16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DeleteUnusedDGroups32x32 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUnusedDGroups32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] DeleteUnusedLegends32x32 {
             get {
                 object obj = ResourceManager.GetObject("DeleteUnusedLegends32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DeleteUnusedLTypes32x32 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUnusedLTypes32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DeleteUnusedMGroups16x16 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUnusedMGroups16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DeleteUnusedMGroups32x32 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteUnusedMGroups32x32", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -266,6 +316,86 @@ namespace AhisaTestProject.Properties {
         internal static byte[] UngroupAndDelete32x32 {
             get {
                 object obj = ResourceManager.GetObject("UngroupAndDelete32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UngroupDeleteDGroups16x16 {
+            get {
+                object obj = ResourceManager.GetObject("UngroupDeleteDGroups16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UngroupDeleteDGroups32x32 {
+            get {
+                object obj = ResourceManager.GetObject("UngroupDeleteDGroups32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UngroupDeleteMGroups16x16 {
+            get {
+                object obj = ResourceManager.GetObject("UngroupDeleteMGroups16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UngroupDeleteMGroups32x32 {
+            get {
+                object obj = ResourceManager.GetObject("UngroupDeleteMGroups32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UngroupDGroups16x16 {
+            get {
+                object obj = ResourceManager.GetObject("UngroupDGroups16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UngroupDGroups32x32 {
+            get {
+                object obj = ResourceManager.GetObject("UngroupDGroups32x32", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UngroupMGroups16x16 {
+            get {
+                object obj = ResourceManager.GetObject("UngroupMGroups16x16", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UngroupMGroups32x32 {
+            get {
+                object obj = ResourceManager.GetObject("UngroupMGroups32x32", resourceCulture);
                 return ((byte[])(obj));
             }
         }
